@@ -14,4 +14,4 @@
     Timeframe: 2022-04-03 15 to 2022-04-03 21\
     Execution time: 15.43 minutes\
     Most placed color: #000000\
-    Most placed pixel location: 359,564\
+    Most placed pixel location: 359,564
