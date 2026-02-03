@@ -1,0 +1,58 @@
+In r/place, users were able to place a pixel every 5 minutes.
+
+I found users who placed many pixels (over 50 across 4 days) and highlighted
+users who placed a pixel on average 5 minutes 5 seconds apart from one another.
+This seems irregular, as that would mean they placed a pixel as soon as they were
+able to, for over 4 hours.
+
+Here is the output below. numPixels is the number of pixels a user placed, and
+meanTimeBetweenPixels is the average time between pixel placements.
+
+There were 123 users who placed more than 50 pixels, about 305 seconds apart:
+shape: (123, 3)
+┌──────────────────────┬───────────┬───────────────────────┐
+│ user_id              ┆ numPixels ┆ meanTimeBetweenPixels │
+│ ---                  ┆ ---       ┆ ---                   │
+│ u64                  ┆ u32       ┆ f64                   │
+╞══════════════════════╪═══════════╪═══════════════════════╡
+│ 3952274845658526639  ┆ 148       ┆ 303.061224            │
+│ 8160624432033347487  ┆ 59        ┆ 303.413793            │
+│ 9882793067407918677  ┆ 196       ┆ 281.615385            │
+│ 8348670836346251513  ┆ 58        ┆ 301.280702            │
+│ 16164922602753044884 ┆ 53        ┆ 304.538462            │
+│ …                    ┆ …         ┆ …                     │
+│ 18257826769433940823 ┆ 288       ┆ 303.557491            │
+│ 10548774541116088419 ┆ 256       ┆ 303.556863            │
+│ 3045669016353214072  ┆ 137       ┆ 303.191176            │
+│ 16975775226082826446 ┆ 66        ┆ 301.261538            │
+│ 16633411302407001362 ┆ 224       ┆ 303.493274            │
+└──────────────────────┴───────────┴───────────────────────┘
+
+I also found users who placed many pixels (over 50 across 4 days) and highlighted
+users who placed a pixel repeatedly on the same coordinate. I calculated this by
+counting how many different coordinates a user placed a pixel on, and how many
+pixels a user placed, and found its ratio. If this ratio is small, it means the
+user placed most of their pixels on the same few coordinates, which seems irregular.
+
+Here is the output below. numPixels is the number of pixels a user placed, and
+numUniqueCoord is the number of unique coordinates a user placed a pixel on.
+
+There were 38 users who placed more than 50 pixels, mostly at the same coordinates:
+shape: (38, 4)
+┌──────────────────────┬───────────┬────────────────┬──────────┐
+│ user_id              ┆ numPixels ┆ numUniqueCoord ┆ ratio    │
+│ ---                  ┆ ---       ┆ ---            ┆ ---      │
+│ u64                  ┆ u32       ┆ u32            ┆ f64      │
+╞══════════════════════╪═══════════╪════════════════╪══════════╡
+│ 17492780272552274741 ┆ 181       ┆ 7              ┆ 0.038674 │
+│ 5414382227185409061  ┆ 96        ┆ 1              ┆ 0.010417 │
+│ 3809762399018157656  ┆ 69        ┆ 3              ┆ 0.043478 │
+│ 15072784148915839317 ┆ 67        ┆ 1              ┆ 0.014925 │
+│ 6897087176514218932  ┆ 86        ┆ 2              ┆ 0.023256 │
+│ …                    ┆ …         ┆ …              ┆ …        │
+│ 1896552860169575729  ┆ 126       ┆ 1              ┆ 0.007937 │
+│ 18327249986231194549 ┆ 80        ┆ 1              ┆ 0.0125   │
+│ 14062894468288556866 ┆ 157       ┆ 2              ┆ 0.012739 │
+│ 2410419206143979347  ┆ 181       ┆ 6              ┆ 0.033149 │
+│ 2224540297564847554  ┆ 265       ┆ 10             ┆ 0.037736 │
+└──────────────────────┴───────────┴────────────────┴──────────┘
