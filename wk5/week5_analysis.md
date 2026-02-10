@@ -10,11 +10,11 @@ is a rough estimate for those days. The top left quadrant is the original r/plac
 and on 4/2 another quadrant was added to its right, and lastly on 4/3 the bottom \
 2 quadrants were added.\
 \
-![alt text](image.png)\
-\
 We can see the Osu! community got to work very quickly when r/place started,\
-judging by their circular pixel art and overlaying with the other image.\ 
+judging by their circular pixel art and overlaying with the other image.\
 Users started by reserving a block for their flags, judging by the rectangles\
 that were drawn as soon as r/place expanded. Users also wrote ENOUGH as soon as\
-r/place expanded on 4/3, so it seems not everyone approved of r/place.\ 
+r/place expanded on 4/3, so it seems not everyone approved of r/place.
+\
+![alt text](image.png)
 
