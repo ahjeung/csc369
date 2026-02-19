@@ -18,3 +18,7 @@ flights arriving over 1.5 hrs late.
 In addition, the times in the dataset (departure time, arrival time, etc.) are just written in hhmm in local time. 
 I think it would be helpful to convert it to datetime, which means I would need to convert the departure time
 (which is in local time) to UTC and add the total flight time to it.
+
+There is a weather delay column in the dataset, but I cannot really tell whether this is a weather delay at the origin or destination airport 
+For example, there could be bad weather at the origin airport hence the departure was delayed or bad weather at the destination so the flight
+departed late to wait for the weather to clear up. I would try to infer this by looking at patterns in the data when I do a deeper analysis. 
