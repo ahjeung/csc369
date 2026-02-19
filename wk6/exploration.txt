@@ -1,0 +1,20 @@
+My project is to look at US domestic flight data to determine which airports
+could be causing delays in the flight network. 
+
+I had to download my dataset by month, so I first concatenated each month's csv file into one big csv file.
+
+For my exploration, I looked at flight data for 2025 on Tableau. 
+
+I noticed some flights had long air times so I took a closer look at some of them. 
+
+For example, I found a Southwest flight from Sacramento to Boise with an air time of 16 hours. 
+After looking up this flight online, it was supposed to arrive at Boise at night but it diverted back to Sacramento and
+departed again the next morning, hence it arrived 16 hours late. 
+
+Interestingly, the distribution of delay times for flights is roughly normal and 75% of flights arrive early or
+within 11 min past the scheduled arrival time. It is skewed with 10% of flights arriving over 47 min late, and 5% of
+flights arriving over 1.5 hrs late.   
+
+In addition, the times in the dataset (departure time, arrival time, etc.) are just written in hhmm in local time. 
+I think it would be helpful to convert it to datetime, which means I would need to convert the departure time
+(which is in local time) to UTC and add the total flight time to it.
