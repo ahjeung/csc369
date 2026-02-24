@@ -1,0 +1,58 @@
+I am looking at US domestic flight data from Jan 2023 thru Nov 2025 for 360 airports 
+across the US and US territories.
+
+Just out of curiosity, I first found which airports have the highest rate of delayed
+departures and arrivals.
+(Delayed means more than 15 minutes past scheduled departure/arrival time)
+
+I sorted 360 airports by the number of departures and arrivals, and only kept airports within the
+top half, so I filtered out airports with fewer flights. 
+    
+Airports with the highest rate of departure delays:
+    1. Aspen, CO: Aspen Pitkin County Sardy Field, 29.92%
+    2. Aguadilla, PR: Rafael Hernandez, 27.61%
+    3. Fort Lauderdale, FL: Fort Lauderdale-Hollywood International, 27.05%
+
+Airports with the highest rate of arrival delays: 
+    1. Aguadilla, PR: Rafael Hernandez, 32.02%
+    2. Sanford, FL: Orlando Sanford International, 29.92%
+    3. Aspen, CO: Aspen Pitkin County Sardy Field, 28.65%
+
+Airports with a higher rate of departure delays tend to have a higher rate of arrival delays as well. 
+
+(Refer to depArrDelayRates.png)
+
+However, it is still too early to claim these airports are causing delays within the flight network.
+For example, it could be possible that the airplane from the previous flight heading into Aspen, CO 
+arrived late so the subsequent flight heading out of Aspen was also delayed. 
+
+
+
+For the next part of my analysis, I looked at what I will call 'delay propagation.' I hypothesized that delays
+tend to propagate, so if a flight arrives late, its next departure will be late as well. 
+
+Turns out, when a plane arrives late, 52% of the time that plane's next departure is delayed as well. 
+
+I calculated this by sorting my flight data by tail number (plane's registration number, kind of like a 
+license plate for a plane) and then sorting that plane's flights in sequential order by departure time. 
+For each plane, I counted the instances of the previous flight arriving late and the current flight 
+departing late, divided by the plane's total number of departures, and found the 52% number. 
+
+I also looked at which airports are the source of delays in a similar way. Just like above, I sorted my dataset by 
+tail number and then sorted that plane's flights in sequential order. I then found instances where the 
+previous flight arrived on time, but the current flight departed late, and I counted this as an instance of 
+sourceDelay. Lastly, I calculated which airports have the highest rate of sourceDelays, and it paints a 
+different ranking than before. 
+
+Airports with the highest rate of sourceDelays: 
+    1. Baltimore, MD: Baltimore/Washington International Thurgood Marshall, 14.87%
+    2. Miami, FL: Miami International, 14.06%
+    3. Dallas/Fort Worth, TX: Dallas/Fort Worth International, 13.83%
+
+(In case the wording was confusing, this means 14.87% of all domestic flights departing from Baltimore was 
+delayed because of some cause at Baltimore, and so on)
+
+For reference, Aspen, CO (#1 in highest rate of departure delays) was #17 out of 180 here, 
+Aguadilla, PR (#2 in highest rate of departure delays) was #22 out of 180 here, and
+Fore Lauderdale, FL (#3 in highest rate of departure delays) was #4 out of 180. 
+
